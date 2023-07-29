@@ -24,20 +24,40 @@ function playRound( playerSelection, computerSelection ) {
     return resultStr
 };
 
+function getPlayerChoice() {
+    console.log(this.getAttribute('id'))
+
+}
+
 function game() {
-    compChoices = ['rock', 'paper', 'scissors'];
-    for ( let i = 0; i < 5; i ++ ) {
-        playerSelection = prompt("enter choice: rock, paper or scissors", "rock");
-        computerSelection = getComputerChoice( compChoices )
-        result = playRound( playerSelection, computerSelection );
-        console.log(`playersleection: ${playerSelection}`)
-        console.log(`computerseleection: ${computerSelection}`)
+    // pressing buttons calls play round function
+    // change playerSelection value to choice based on which button pressed
+    compChoices = ['rock', 'paper', 'scissors']
+    const btns = document.querySelectorAll("button")
+    btns.forEach( btn => btn.addEventListener(
+        "click", 
+        () => {
+                playerSelection = btn.getAttribute("id")
+                compSelection = getComputerChoice(compChoices)
+                console.log(`player: ${playerSelection}, comp: ${compSelection}`)
+                result = playRound(playerSelection, compSelection)
+                console.log(result)
+            }
+        )
+    )
+    
+    // compChoices = ['rock', 'paper', 'scissors'];
+    
+    // playerSelection = prompt("enter choice: rock, paper or scissors", "rock");
+    // computerSelection = getComputerChoice( compChoices )
+    // result = playRound( playerSelection, computerSelection );
+    // console.log(`playersleection: ${playerSelection}`)
+    // console.log(`computerseleection: ${computerSelection}`)
 
 
-        console.log(result);
+    // console.log(result);
 
     };
-}
 
 game()
 
