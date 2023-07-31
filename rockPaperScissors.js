@@ -22,7 +22,7 @@ function getGameResult( playerSelection, computerSelection ) {
     )
     
     if ( playerSelection == computerSelection ) {
-        resultStr = "Draw!"
+        resultStr = `Draw! You played ${playerSelection} and computer played ${computerSelection}!`
     
     
     } else if (playerWin) {
